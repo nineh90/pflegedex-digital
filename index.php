@@ -202,21 +202,28 @@ require __DIR__ . '/includes/header.php';
         </p>
 
         <div class="trust-points">
+            <?php
+            // Trust-Punkte als Array. Icons sind weiße Inline-SVGs (currentColor),
+            // da sie auf dem Bordeaux-Band stehen.
+            $svgW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+            $trustPoints = [
+                [ // Schild mit Haken = DSGVO-konform
+                    $svgW.'<path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+                    'DSGVO-konform', 'Datenschutz by Design'],
+                [ // Durchgestrichene Wolke = kein SaaS
+                    $svgW.'<path d="M17.5 19a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.5 9.5 4.5 4.5 0 0 0 7 19h10.5z"/><path d="M4 4l16 16"/></svg>',
+                    'Kein SaaS', 'Läuft komplett bei Ihnen'],
+                [ // Durchgestrichenes Teilen = keine Drittanbieter
+                    $svgW.'<circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="6.5" r="2.3"/><circle cx="18" cy="17.5" r="2.3"/><path d="M8.05 10.95l7.9-3.4M8.05 13.05l7.9 3.4"/><path d="M3.5 3.5l17 17"/></svg>',
+                    'Keine Drittanbieter', 'Keine Datenweitergabe'],
+            ];
+            foreach ($trustPoints as $tp): ?>
             <div class="trust-point">
-                <span class="tp-icon">🛡️</span>
-                <strong>DSGVO-konform</strong>
-                <span>Datenschutz by Design</span>
+                <span class="tp-icon" aria-hidden="true"><?= $tp[0] ?></span>
+                <strong><?= htmlspecialchars($tp[1]) ?></strong>
+                <span><?= htmlspecialchars($tp[2]) ?></span>
             </div>
-            <div class="trust-point">
-                <span class="tp-icon">🚫</span>
-                <strong>Kein SaaS</strong>
-                <span>Läuft komplett bei Ihnen</span>
-            </div>
-            <div class="trust-point">
-                <span class="tp-icon">🔐</span>
-                <strong>Keine Drittanbieter</strong>
-                <span>Keine Datenweitergabe</span>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

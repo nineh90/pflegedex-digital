@@ -629,7 +629,18 @@ ul { margin: 0; padding: 0; list-style: none; }
     padding: 1.4rem 1.8rem;
     min-width: 200px;
 }
-.trust-point .tp-icon { font-size: 1.8rem; }
+.trust-point .tp-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff; /* currentColor der Icons */
+    margin-bottom: 0.3rem;
+}
+.trust-point .tp-icon svg { width: 26px; height: 26px; }
 .trust-point strong { font-family: var(--font-head); font-size: 1.1rem; }
 .trust-point span { color: rgba(255,255,255,0.82); font-size: 0.92rem; }
 
