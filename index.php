@@ -281,9 +281,21 @@ require __DIR__ . '/includes/header.php';
         </div>
 
         <div class="video-placeholder reveal">
-            <div class="play" aria-hidden="true">▶</div>
-            <strong>Demo-Video folgt in Kürze</strong>
-            <span>Sie möchten Pflegedex jetzt schon sehen? Fragen Sie eine persönliche Demo an.</span>
+            <!-- EKG als dezenter Karten-Hintergrund (gleiche animierte Linie
+                 wie im Hero, nur als Watermark hinter dem Text). -->
+            <div class="video-ekg" aria-hidden="true">
+                <svg viewBox="0 0 600 80" preserveAspectRatio="none" role="presentation" focusable="false">
+                    <path class="ekg-base"  pathLength="100" d="M0 40 L60 40 L70 34 L80 40 L95 40 L100 46 L108 12 L116 58 L122 40 L140 40 L150 33 L160 40 L200 40 L260 40 L270 34 L280 40 L295 40 L300 46 L308 12 L316 58 L322 40 L340 40 L350 33 L360 40 L400 40 L460 40 L470 34 L480 40 L495 40 L500 46 L508 12 L516 58 L522 40 L540 40 L550 33 L560 40 L600 40"/>
+                    <path class="ekg-trace" pathLength="100" d="M0 40 L60 40 L70 34 L80 40 L95 40 L100 46 L108 12 L116 58 L122 40 L140 40 L150 33 L160 40 L200 40 L260 40 L270 34 L280 40 L295 40 L300 46 L308 12 L316 58 L322 40 L340 40 L350 33 L360 40 L400 40 L460 40 L470 34 L480 40 L495 40 L500 46 L508 12 L516 58 L522 40 L540 40 L550 33 L560 40 L600 40"/>
+                </svg>
+            </div>
+            <div class="video-content">
+                <strong>Demo-Video folgt in Kürze</strong>
+                <span>Sie möchten Pflegedex jetzt schon sehen? Fragen Sie eine persönliche Demo an.</span>
+                <!-- Dezenter Outline-Button (sekundär), damit er sich vom
+                     gefüllten Haupt-CTA in der Sektion direkt darunter abhebt. -->
+                <a href="pages/kontakt.php" class="btn btn-outline-dark btn-sm">Demo anfragen</a>
+            </div>
         </div>
     </div>
 </section>
