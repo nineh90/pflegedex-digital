@@ -155,8 +155,8 @@ require __DIR__ . '/includes/header.php';
             // Feature-Liste als Array -> sauber wiederholbar.
             // [ Icon-SVG, Titel, Beschreibung ]
             $features = [
-                [ // Haus = lokaler Betrieb
-                    $svgA.'<path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9.5 20v-6h5v6"/></svg>',
+                [ // Server = lokaler Betrieb
+                    $svgA.'<rect x="3" y="4" width="18" height="7" rx="1.6"/><rect x="3" y="13" width="18" height="7" rx="1.6"/><circle cx="7" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="7" cy="16.5" r="0.9" fill="currentColor" stroke="none"/></svg>',
                     'Lokaler Betrieb', 'Keine Cloud, kein Datenverlust. Pflegedex läuft auf Ihrem eigenen Heimserver.'],
                 [ // Schloss = Pseudonymisierung
                     $svgA.'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none"/></svg>',
