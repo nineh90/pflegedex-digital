@@ -102,44 +102,33 @@ require __DIR__ . '/includes/header.php';
         </div>
 
         <div class="grid grid-3">
-            <!-- Karte 1 -->
-            <div class="ps-card reveal">
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">❌</span>
-                    <span class="ps-bad">Papierbasierte Dokumentation</span>
-                </div>
-                <div class="ps-arrow">↓</div>
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">✅</span>
-                    <span class="ps-good">Digitale Pflegeberichte – schnell erfasst, sauber strukturiert</span>
-                </div>
-            </div>
+            <?php
+            // Problem -> Lösung Paare. Erst das Problem (Status quo),
+            // dann die Pflegedex-Lösung.
+            $problemSolutions = [
+                ['Papierbasierte Dokumentation',        'Digitale Pflegeberichte – schnell erfasst, sauber strukturiert'],
+                ['Datenschutz-Risiken in der Cloud',    'Daten nur auf Ihrem Server – nichts verlässt das Haus'],
+                ['Komplizierte, überladene Software',   'Intuitiv, rollenbasiert, sofort einsatzbereit'],
+            ];
 
-            <!-- Karte 2 -->
-            <div class="ps-card reveal">
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">❌</span>
-                    <span class="ps-bad">Datenschutz-Risiken in der Cloud</span>
-                </div>
-                <div class="ps-arrow">↓</div>
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">✅</span>
-                    <span class="ps-good">Daten nur auf Ihrem Server – nichts verlässt das Haus</span>
-                </div>
-            </div>
+            // Icons einmal definieren (statt pro Karte zu wiederholen).
+            $iconBad = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+            $iconGood = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+            $iconArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M6 12l6 6 6-6"/></svg>';
 
-            <!-- Karte 3 -->
+            foreach ($problemSolutions as $ps): ?>
             <div class="ps-card reveal">
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">❌</span>
-                    <span class="ps-bad">Komplizierte, überladene Software</span>
+                <div class="ps-row ps-row--bad">
+                    <span class="ps-icon" aria-hidden="true"><?= $iconBad ?></span>
+                    <span class="ps-bad"><?= htmlspecialchars($ps[0]) ?></span>
                 </div>
-                <div class="ps-arrow">↓</div>
-                <div class="ps-row">
-                    <span class="ps-icon" aria-hidden="true">✅</span>
-                    <span class="ps-good">Intuitiv, rollenbasiert, sofort einsatzbereit</span>
+                <div class="ps-arrow" aria-hidden="true"><?= $iconArrow ?></div>
+                <div class="ps-row ps-row--good">
+                    <span class="ps-icon" aria-hidden="true"><?= $iconGood ?></span>
+                    <span class="ps-good"><?= htmlspecialchars($ps[1]) ?></span>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
