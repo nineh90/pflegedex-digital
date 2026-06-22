@@ -590,11 +590,12 @@ ul { margin: 0; padding: 0; list-style: none; }
     justify-content: center;
     width: 56px;
     height: 56px;
-    font-size: 1.8rem;
     border-radius: var(--radius-md);
     background: var(--pflege-bordeaux-tint);
+    color: var(--pflege-bordeaux); /* currentColor der Icons */
     margin-bottom: 1rem;
 }
+.feature-icon svg { width: 28px; height: 28px; }
 .feature-card h3 { color: var(--pflege-heading); margin-bottom: 0.4rem; }
 .feature-card p { color: var(--pflege-muted); margin: 0; font-size: 0.98rem; }
 

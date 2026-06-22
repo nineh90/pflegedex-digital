@@ -148,18 +148,35 @@ require __DIR__ . '/includes/header.php';
 
         <div class="grid grid-3">
             <?php
+            // Inline-SVG-Icons (Strich-Stil, einfarbig via currentColor).
+            // svgAttr einmal definieren -> jedes Icon erbt denselben Look.
+            $svgA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+
             // Feature-Liste als Array -> sauber wiederholbar.
+            // [ Icon-SVG, Titel, Beschreibung ]
             $features = [
-                ['🏠', 'Lokaler Betrieb',     'Keine Cloud, kein Datenverlust. Pflegedex läuft auf Ihrem eigenen Heimserver.'],
-                ['🔒', 'Pseudonymisierung',   'Bewohnerdaten werden automatisch geschützt – auch gegenüber der KI.'],
-                ['🤖', 'KI-Unterstützung',    'Pflegeberichte KI-gestützt vorbereiten. Ausgaben sind immer nur Entwürfe.'],
-                ['👥', 'Rollenkonzept',       'Admin, PDL, Pflegekraft – jeder sieht nur, was er sehen darf.'],
-                ['📋', 'Audit-Trail',         'Lückenlose, unveränderliche Dokumentation. Signierte Berichte bleiben erhalten.'],
-                ['🔧', 'Einfache Installation','Docker-basiert – läuft auf nahezu jedem Heimserver.'],
+                [ // Haus = lokaler Betrieb
+                    $svgA.'<path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9"/><path d="M9.5 20v-6h5v6"/></svg>',
+                    'Lokaler Betrieb', 'Keine Cloud, kein Datenverlust. Pflegedex läuft auf Ihrem eigenen Heimserver.'],
+                [ // Schloss = Pseudonymisierung
+                    $svgA.'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none"/></svg>',
+                    'Pseudonymisierung', 'Bewohnerdaten werden automatisch geschützt – auch gegenüber der KI.'],
+                [ // Funke = KI (identisch zum Hero)
+                    $svgA.'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>',
+                    'KI-Unterstützung', 'Pflegeberichte KI-gestützt vorbereiten. Ausgaben sind immer nur Entwürfe.'],
+                [ // Personen = Rollenkonzept
+                    $svgA.'<circle cx="9" cy="8" r="3.2"/><path d="M3.6 19a5.4 5.4 0 0 1 10.8 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 6.1"/><path d="M17.5 13.1A5.4 5.4 0 0 1 20.4 18"/></svg>',
+                    'Rollenkonzept', 'Admin, PDL, Pflegekraft – jeder sieht nur, was er sehen darf.'],
+                [ // Dokument mit Haken = Audit-Trail
+                    $svgA.'<path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4"/><path d="M9 14.5l2 2 3.5-3.5"/></svg>',
+                    'Audit-Trail', 'Lückenlose, unveränderliche Dokumentation. Signierte Berichte bleiben erhalten.'],
+                [ // Paket/Container = einfache Installation (Docker)
+                    $svgA.'<path d="M21 7.5l-9-4.5-9 4.5 9 4.5 9-4.5z"/><path d="M3 7.5v9l9 4.5 9-4.5v-9"/><path d="M12 12v9"/></svg>',
+                    'Einfache Installation', 'Docker-basiert – läuft auf nahezu jedem Heimserver.'],
             ];
             foreach ($features as $f): ?>
             <div class="feature-card reveal">
-                <div class="feature-icon"><?= $f[0] ?></div>
+                <div class="feature-icon" aria-hidden="true"><?= $f[0] ?></div>
                 <h3><?= htmlspecialchars($f[1]) ?></h3>
                 <p><?= htmlspecialchars($f[2]) ?></p>
             </div>
