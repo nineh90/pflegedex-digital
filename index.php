@@ -239,27 +239,32 @@ require __DIR__ . '/includes/header.php';
         </div>
 
         <div class="grid grid-3">
+            <?php
+            // Zielgruppen als Array. Icons = Bordeaux-Inline-SVGs (currentColor).
+            $svgZ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+            $audiences = [
+                [ // Gebäude mit Kreuz = Pflegeeinrichtung
+                    $svgZ.'<path d="M3 21h18"/><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M12 7v3M10.5 8.5h3"/><path d="M10 21v-4h4v4"/></svg>',
+                    'Stationäre Pflegeeinrichtungen',
+                    'Häuser mit 10–100 Bewohnern, die ihre Dokumentation modernisieren wollen.'],
+                [ // Monitor = eigene IT / Heimserver
+                    $svgZ.'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+                    'Einrichtungen mit eigenem Heimserver',
+                    'IT-Verantwortliche, die Software lieber im eigenen Haus betreiben.'],
+                [ // Medaille mit Haken = Anspruch / Verlässlichkeit
+                    $svgZ.'<circle cx="12" cy="9" r="6"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/><path d="M9.6 9l1.7 1.7L15 7"/></svg>',
+                    'Träger mit Anspruch an Datensouveränität',
+                    'Kleine bis mittlere Träger (1–3 Häuser), die Verlässlichkeit priorisieren.'],
+            ];
+            foreach ($audiences as $a): ?>
             <div class="audience-card reveal">
-                <span class="ac-icon">🏥</span>
+                <span class="ac-icon" aria-hidden="true"><?= $a[0] ?></span>
                 <div>
-                    <h3>Stationäre Pflegeeinrichtungen</h3>
-                    <p>Häuser mit 10–100 Bewohnern, die ihre Dokumentation modernisieren wollen.</p>
+                    <h3><?= htmlspecialchars($a[1]) ?></h3>
+                    <p><?= htmlspecialchars($a[2]) ?></p>
                 </div>
             </div>
-            <div class="audience-card reveal">
-                <span class="ac-icon">🖥️</span>
-                <div>
-                    <h3>Einrichtungen mit eigenem Heimserver</h3>
-                    <p>IT-Verantwortliche, die Software lieber im eigenen Haus betreiben.</p>
-                </div>
-            </div>
-            <div class="audience-card reveal">
-                <span class="ac-icon">🤝</span>
-                <div>
-                    <h3>Träger mit Anspruch an Datensouveränität</h3>
-                    <p>Kleine bis mittlere Träger (1–3 Häuser), die Verlässlichkeit priorisieren.</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

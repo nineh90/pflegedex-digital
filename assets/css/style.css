@@ -665,7 +665,18 @@ ul { margin: 0; padding: 0; list-style: none; }
     height: 100%;
     box-shadow: var(--shadow-sm);
 }
-.audience-card .ac-icon { font-size: 1.8rem; flex-shrink: 0; }
+.audience-card .ac-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--pflege-bordeaux-tint);
+    color: var(--pflege-bordeaux); /* currentColor der Icons */
+    flex-shrink: 0;
+}
+.audience-card .ac-icon svg { width: 24px; height: 24px; }
 .audience-card h3 { color: var(--pflege-heading); margin-bottom: 0.3rem; }
 .audience-card p { color: var(--pflege-muted); margin: 0; font-size: 0.97rem; }
 
