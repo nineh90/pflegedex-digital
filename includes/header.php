@@ -21,6 +21,9 @@ if (!defined('PFLEGEDEX_SITE_NAME')) {
     require_once __DIR__ . '/../config.php';
 }
 
+// Zentrale Inline-SVG-Icons (pflegedex_icon()) überall verfügbar machen.
+require_once __DIR__ . '/icons.php';
+
 // Defaults setzen, damit nichts undefiniert ist.
 $root        = $root        ?? '';
 $currentPage = $currentPage ?? 'home';

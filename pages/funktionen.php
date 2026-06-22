@@ -31,23 +31,24 @@ require __DIR__ . '/../includes/header.php';
         <!-- Detail-Features als abwechselnde Zeilen -->
         <div class="grid grid-2">
             <?php
+            // [ Icon-Name (siehe includes/icons.php), Titel, Beschreibung ]
             $details = [
-                ['🏠', 'Lokaler Betrieb',
+                ['server', 'Lokaler Betrieb',
                  'Pflegedex läuft Docker-basiert auf Ihrem eigenen Heimserver. Keine Cloud, keine fremden Rechenzentren – und damit kein Datenabfluss. Sie behalten die volle Kontrolle über Hardware und Daten.'],
-                ['🔒', 'Pseudonymisierung',
+                ['lock', 'Pseudonymisierung',
                  'Bewohnerdaten sind UUID-basiert strukturiert und werden vor jeder KI-Verarbeitung pseudonymisiert. So bleiben personenbezogene Informationen geschützt – auch gegenüber dem Sprachmodell.'],
-                ['🤖', 'KI-Unterstützung',
+                ['ai', 'KI-Unterstützung',
                  'Über eine lokale Ollama-Anbindung bereitet Pflegedex Pflegeberichte vor. Die KI-Ausgaben sind immer nur Entwürfe – nichts wird automatisch übernommen. Die Pflegekraft entscheidet.'],
-                ['👥', 'Rollenkonzept',
+                ['users', 'Rollenkonzept',
                  'Drei klar getrennte Rollen: Admin, PDL und Pflegekraft. Jede Person sieht und bearbeitet nur, was ihrer Rolle entspricht. Standort- und Wohnbereichs-Verwaltung inklusive.'],
-                ['📋', 'Audit-Trail',
+                ['doc-check', 'Audit-Trail',
                  'Signierte Pflegeberichte werden append-only gespeichert und nie überschrieben. Das schafft eine lückenlose, nachvollziehbare und revisionssichere Dokumentation.'],
-                ['🔧', 'Einfache Installation',
+                ['package', 'Einfache Installation',
                  'Dank Docker-Setup läuft Pflegedex auf nahezu jedem Heimserver. PostgreSQL und Redis sind eingebunden – die Einrichtung übernehmen wir gemeinsam mit Ihrer IT.'],
             ];
             foreach ($details as $d): ?>
             <div class="feature-card reveal">
-                <div class="feature-icon"><?= $d[0] ?></div>
+                <div class="feature-icon" aria-hidden="true"><?= pflegedex_icon($d[0]) ?></div>
                 <h3><?= htmlspecialchars($d[1]) ?></h3>
                 <p><?= htmlspecialchars($d[2]) ?></p>
             </div>
@@ -82,17 +83,17 @@ require __DIR__ . '/../includes/header.php';
         </div>
         <div class="grid grid-3">
             <div class="feature-card reveal">
-                <div class="feature-icon">🧾</div>
+                <div class="feature-icon" aria-hidden="true"><?= pflegedex_icon('signed') ?></div>
                 <h3>Signierte Berichte</h3>
                 <p>Append-only und revisionssicher – Berichte werden nicht überschrieben.</p>
             </div>
             <div class="feature-card reveal">
-                <div class="feature-icon">📜</div>
+                <div class="feature-icon" aria-hidden="true"><?= pflegedex_icon('history') ?></div>
                 <h3>Erweitertes Audit-Log</h3>
                 <p>Noch feinere Nachvollziehbarkeit aller Änderungen.</p>
             </div>
             <div class="feature-card reveal">
-                <div class="feature-icon">🔗</div>
+                <div class="feature-icon" aria-hidden="true"><?= pflegedex_icon('link') ?></div>
                 <h3>SIS-Integration</h3>
                 <p>Anbindung an die Strukturierte Informationssammlung.</p>
             </div>

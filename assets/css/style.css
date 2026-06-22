@@ -677,6 +677,55 @@ ul { margin: 0; padding: 0; list-style: none; }
     flex-shrink: 0;
 }
 .audience-card .ac-icon svg { width: 24px; height: 24px; }
+
+/* --- 3-Schritte-Stepper ("Mitgestalten") --- */
+.steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    max-width: 940px;
+    margin: 0 auto;
+}
+/* Verbindungslinie hinter den Nummern (nur Desktop) */
+.steps::before {
+    content: "";
+    position: absolute;
+    top: 28px;          /* halbe Höhe des Nummern-Kreises (56px) */
+    left: 16.6%;
+    right: 16.6%;
+    height: 2px;
+    background: var(--pflege-border);
+    z-index: 0;
+}
+.step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 0.5rem;
+}
+.step-num {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.1rem;
+    border-radius: 50%;
+    background: var(--pflege-bordeaux);
+    color: var(--pflege-white);
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.4rem;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-glow);
+}
+.step h3 { color: var(--pflege-heading); margin-bottom: 0.4rem; }
+.step p  { color: var(--pflege-muted); margin: 0; font-size: 0.98rem; }
+
+/* Mobil/Tablet: sauberer vertikaler Stepper, Linie aus */
+@media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr; max-width: 460px; }
+    .steps::before { display: none; }
+}
 .audience-card h3 { color: var(--pflege-heading); margin-bottom: 0.3rem; }
 .audience-card p { color: var(--pflege-muted); margin: 0; font-size: 0.97rem; }
 

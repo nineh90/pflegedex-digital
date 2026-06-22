@@ -58,31 +58,9 @@ require __DIR__ . '/includes/header.php';
         <!-- Trust-Badges mit Inline-SVG-Icons (keine Emojis, keine CDN-Abhängigkeit).
              Icons erben die Farbe per currentColor -> einheitliches Bordeaux. -->
         <ul class="hero-badges">
-            <li>
-                <!-- Icon: Server (on-premise) -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="3" y="4"  width="18" height="7" rx="1.6"/>
-                    <rect x="3" y="13" width="18" height="7" rx="1.6"/>
-                    <circle cx="7" cy="7.5"  r="0.9" fill="currentColor" stroke="none"/>
-                    <circle cx="7" cy="16.5" r="0.9" fill="currentColor" stroke="none"/>
-                </svg>
-                <span>Eigener Server</span>
-            </li>
-            <li>
-                <!-- Icon: Schild mit Haken (DSGVO) -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/>
-                    <path d="M9 12l2 2 4-4"/>
-                </svg>
-                <span>DSGVO-konform</span>
-            </li>
-            <li>
-                <!-- Icon: Funke (KI) -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/>
-                </svg>
-                <span>KI-gestützt</span>
-            </li>
+            <li><?= pflegedex_icon('server') ?><span>Eigener Server</span></li>
+            <li><?= pflegedex_icon('shield') ?><span>DSGVO-konform</span></li>
+            <li><?= pflegedex_icon('ai') ?><span>KI-gestützt</span></li>
         </ul>
     </div>
 </section>
@@ -111,10 +89,10 @@ require __DIR__ . '/includes/header.php';
                 ['Komplizierte, überladene Software',   'Intuitiv, rollenbasiert, sofort einsatzbereit'],
             ];
 
-            // Icons einmal definieren (statt pro Karte zu wiederholen).
-            $iconBad = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-            $iconGood = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
-            $iconArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M6 12l6 6 6-6"/></svg>';
+            // Icons aus dem zentralen Helper (X/Haken kräftiger, Pfeil am kräftigsten).
+            $iconBad   = pflegedex_icon('x', 2.2);
+            $iconGood  = pflegedex_icon('check', 2.2);
+            $iconArrow = pflegedex_icon('arrow-down', 2.4);
 
             foreach ($problemSolutions as $ps): ?>
             <div class="ps-card reveal">
@@ -148,35 +126,18 @@ require __DIR__ . '/includes/header.php';
 
         <div class="grid grid-3">
             <?php
-            // Inline-SVG-Icons (Strich-Stil, einfarbig via currentColor).
-            // svgAttr einmal definieren -> jedes Icon erbt denselben Look.
-            $svgA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
-
-            // Feature-Liste als Array -> sauber wiederholbar.
-            // [ Icon-SVG, Titel, Beschreibung ]
+            // Feature-Liste -> [ Icon-Name (includes/icons.php), Titel, Beschreibung ]
             $features = [
-                [ // Server = lokaler Betrieb
-                    $svgA.'<rect x="3" y="4" width="18" height="7" rx="1.6"/><rect x="3" y="13" width="18" height="7" rx="1.6"/><circle cx="7" cy="7.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="7" cy="16.5" r="0.9" fill="currentColor" stroke="none"/></svg>',
-                    'Lokaler Betrieb', 'Keine Cloud, kein Datenverlust. Pflegedex läuft auf Ihrem eigenen Heimserver.'],
-                [ // Schloss = Pseudonymisierung
-                    $svgA.'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none"/></svg>',
-                    'Pseudonymisierung', 'Bewohnerdaten werden automatisch geschützt – auch gegenüber der KI.'],
-                [ // Funke = KI (identisch zum Hero)
-                    $svgA.'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>',
-                    'KI-Unterstützung', 'Pflegeberichte KI-gestützt vorbereiten. Ausgaben sind immer nur Entwürfe.'],
-                [ // Personen = Rollenkonzept
-                    $svgA.'<circle cx="9" cy="8" r="3.2"/><path d="M3.6 19a5.4 5.4 0 0 1 10.8 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 6.1"/><path d="M17.5 13.1A5.4 5.4 0 0 1 20.4 18"/></svg>',
-                    'Rollenkonzept', 'Admin, PDL, Pflegekraft – jeder sieht nur, was er sehen darf.'],
-                [ // Dokument mit Haken = Audit-Trail
-                    $svgA.'<path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4"/><path d="M9 14.5l2 2 3.5-3.5"/></svg>',
-                    'Audit-Trail', 'Lückenlose, unveränderliche Dokumentation. Signierte Berichte bleiben erhalten.'],
-                [ // Paket/Container = einfache Installation (Docker)
-                    $svgA.'<path d="M21 7.5l-9-4.5-9 4.5 9 4.5 9-4.5z"/><path d="M3 7.5v9l9 4.5 9-4.5v-9"/><path d="M12 12v9"/></svg>',
-                    'Einfache Installation', 'Docker-basiert – läuft auf nahezu jedem Heimserver.'],
+                ['server',    'Lokaler Betrieb',       'Keine Cloud, kein Datenverlust. Pflegedex läuft auf Ihrem eigenen Heimserver.'],
+                ['lock',      'Pseudonymisierung',     'Bewohnerdaten werden automatisch geschützt – auch gegenüber der KI.'],
+                ['ai',        'KI-Unterstützung',      'Pflegeberichte KI-gestützt vorbereiten. Ausgaben sind immer nur Entwürfe.'],
+                ['users',     'Rollenkonzept',         'Admin, PDL, Pflegekraft – jeder sieht nur, was er sehen darf.'],
+                ['doc-check', 'Audit-Trail',           'Lückenlose, unveränderliche Dokumentation. Signierte Berichte bleiben erhalten.'],
+                ['package',   'Einfache Installation', 'Docker-basiert – läuft auf nahezu jedem Heimserver.'],
             ];
             foreach ($features as $f): ?>
             <div class="feature-card reveal">
-                <div class="feature-icon" aria-hidden="true"><?= $f[0] ?></div>
+                <div class="feature-icon" aria-hidden="true"><?= pflegedex_icon($f[0]) ?></div>
                 <h3><?= htmlspecialchars($f[1]) ?></h3>
                 <p><?= htmlspecialchars($f[2]) ?></p>
             </div>
@@ -203,23 +164,16 @@ require __DIR__ . '/includes/header.php';
 
         <div class="trust-points">
             <?php
-            // Trust-Punkte als Array. Icons sind weiße Inline-SVGs (currentColor),
-            // da sie auf dem Bordeaux-Band stehen.
-            $svgW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+            // Trust-Punkte -> [ Icon-Name (includes/icons.php), Titel, Untertitel ].
+            // Icons erben hier Weiß (currentColor), da auf dem Bordeaux-Band.
             $trustPoints = [
-                [ // Schild mit Haken = DSGVO-konform
-                    $svgW.'<path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
-                    'DSGVO-konform', 'Datenschutz by Design'],
-                [ // Durchgestrichene Wolke = kein SaaS
-                    $svgW.'<path d="M17.5 19a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.5 9.5 4.5 4.5 0 0 0 7 19h10.5z"/><path d="M4 4l16 16"/></svg>',
-                    'Kein SaaS', 'Läuft komplett bei Ihnen'],
-                [ // Durchgestrichenes Teilen = keine Drittanbieter
-                    $svgW.'<circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="6.5" r="2.3"/><circle cx="18" cy="17.5" r="2.3"/><path d="M8.05 10.95l7.9-3.4M8.05 13.05l7.9 3.4"/><path d="M3.5 3.5l17 17"/></svg>',
-                    'Keine Drittanbieter', 'Keine Datenweitergabe'],
+                ['shield',    'DSGVO-konform',        'Datenschutz by Design'],
+                ['cloud-off', 'Kein SaaS',            'Läuft komplett bei Ihnen'],
+                ['share-off', 'Keine Drittanbieter',  'Keine Datenweitergabe'],
             ];
             foreach ($trustPoints as $tp): ?>
             <div class="trust-point">
-                <span class="tp-icon" aria-hidden="true"><?= $tp[0] ?></span>
+                <span class="tp-icon" aria-hidden="true"><?= pflegedex_icon($tp[0]) ?></span>
                 <strong><?= htmlspecialchars($tp[1]) ?></strong>
                 <span><?= htmlspecialchars($tp[2]) ?></span>
             </div>
@@ -240,25 +194,18 @@ require __DIR__ . '/includes/header.php';
 
         <div class="grid grid-3">
             <?php
-            // Zielgruppen als Array. Icons = Bordeaux-Inline-SVGs (currentColor).
-            $svgZ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+            // Zielgruppen -> [ Icon-Name (includes/icons.php), Titel, Beschreibung ]
             $audiences = [
-                [ // Gebäude mit Kreuz = Pflegeeinrichtung
-                    $svgZ.'<path d="M3 21h18"/><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M12 7v3M10.5 8.5h3"/><path d="M10 21v-4h4v4"/></svg>',
-                    'Stationäre Pflegeeinrichtungen',
+                ['building', 'Stationäre Pflegeeinrichtungen',
                     'Häuser mit 10–100 Bewohnern, die ihre Dokumentation modernisieren wollen.'],
-                [ // Monitor = eigene IT / Heimserver
-                    $svgZ.'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
-                    'Einrichtungen mit eigenem Heimserver',
+                ['monitor', 'Einrichtungen mit eigenem Heimserver',
                     'IT-Verantwortliche, die Software lieber im eigenen Haus betreiben.'],
-                [ // Medaille mit Haken = Anspruch / Verlässlichkeit
-                    $svgZ.'<circle cx="12" cy="9" r="6"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/><path d="M9.6 9l1.7 1.7L15 7"/></svg>',
-                    'Träger mit Anspruch an Datensouveränität',
+                ['medal', 'Träger mit Anspruch an Datensouveränität',
                     'Kleine bis mittlere Träger (1–3 Häuser), die Verlässlichkeit priorisieren.'],
             ];
             foreach ($audiences as $a): ?>
             <div class="audience-card reveal">
-                <span class="ac-icon" aria-hidden="true"><?= $a[0] ?></span>
+                <span class="ac-icon" aria-hidden="true"><?= pflegedex_icon($a[0]) ?></span>
                 <div>
                     <h3><?= htmlspecialchars($a[1]) ?></h3>
                     <p><?= htmlspecialchars($a[2]) ?></p>
@@ -301,16 +248,54 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <!-- ============================================================
-     7. KONTAKT / DEMO-CTA
+     7. MITGESTALTEN – In 3 Schritten zur Demo
+     ============================================================ -->
+<section class="section section--light" id="mitgestalten">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Kostenlos testen &amp; mitgestalten</span>
+            <h2>In drei Schritten zu Ihrer Demo</h2>
+            <p class="section-sub">
+                Testen Sie Pflegedex unverbindlich – und sagen Sie uns, was Sie
+                wirklich brauchen. Ihre Ideen fließen direkt in die Entwicklung ein,
+                damit die Software zu Ihrem Haus passt.
+            </p>
+        </div>
+
+        <div class="steps">
+            <?php
+            // [ Schritt-Titel, Beschreibung ] – Nummer kommt automatisch aus der Schleife.
+            $steps = [
+                ['Kostenlos anfragen',
+                 'Schreiben Sie uns kurz – wir richten Ihnen eine unverbindliche Demo von Pflegedex ein. Ohne Kosten, ohne Verpflichtung.'],
+                ['In Ruhe ausprobieren',
+                 'Testen Sie Pflegedex in Ihrem eigenen Tempo und im echten Pflegealltag. Schauen Sie, was zu Ihrem Haus passt.'],
+                ['Mitgestalten',
+                 'Sagen Sie uns, was Sie brauchen oder anders machen würden. Ihr Feedback fließt direkt in die Weiterentwicklung ein.'],
+            ];
+            foreach ($steps as $i => $step): ?>
+            <div class="step reveal">
+                <div class="step-num"><?= $i + 1 ?></div>
+                <h3><?= htmlspecialchars($step[0]) ?></h3>
+                <p><?= htmlspecialchars($step[1]) ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     8. KONTAKT / DEMO-CTA
      ============================================================ -->
 <section class="section trust" id="demo">
     <div class="container text-center">
-        <h2>Bereit für sichere Pflegedokumentation?</h2>
+        <h2>Jetzt kostenlos testen – und mitgestalten</h2>
         <p class="trust-lead">
-            Vereinbaren Sie eine unverbindliche Demo. Wir zeigen Ihnen Pflegedex
-            in Ruhe und beantworten Ihre Fragen – persönlich aus dem Münsterland.
+            Fordern Sie Ihre unverbindliche Demo an: Sie testen Pflegedex ohne
+            Kosten, und wir hören zu, was Ihr Haus wirklich braucht – persönlich
+            aus dem Münsterland.
         </p>
-        <a href="pages/kontakt.php" class="btn btn-primary">Demo anfragen</a>
+        <a href="pages/kontakt.php" class="btn btn-primary">Demo kostenlos anfragen</a>
     </div>
 </section>
 
