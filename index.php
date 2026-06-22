@@ -28,7 +28,9 @@ require __DIR__ . '/includes/header.php';
 <section class="hero">
     <div class="container">
         <h1>
-            Pflegedokumentation.<br>
+            <!-- &shy; = weiches Trennzeichen: unsichtbar, bricht NUR bei
+                 Platznot an dieser Stelle ("Pflege-/dokumentation"). -->
+            Pflege&shy;dokumentation.<br>
             <span class="accent">Sicher. Lokal. Intelligent.</span>
         </h1>
         <p class="hero-sub">
@@ -41,13 +43,47 @@ require __DIR__ . '/includes/header.php';
             <a href="#features" class="btn btn-ghost">Funktionen entdecken</a>
         </div>
 
-        <div class="badge hero-badge">
-            <span>🤖 Powered by KI</span>
-            <span class="dot">·</span>
-            <span>🏠 100% on-premise</span>
-            <span class="dot">·</span>
-            <span>🔒 DSGVO-konform</span>
+        <!-- EKG-Band: feine Herzschlag-Linie als Marken-Akzent.
+             Eine "Sweep"-Linie läuft über die ruhende Grundlinie (wie ein
+             Monitor). Reine Deko -> aria-hidden. Animation wird bei
+             prefers-reduced-motion automatisch abgeschaltet (siehe CSS). -->
+        <div class="hero-ekg" aria-hidden="true">
+            <svg viewBox="0 0 600 80" preserveAspectRatio="none" role="presentation" focusable="false">
+                <!-- pathLength="100" normiert die Länge -> Animation unabhängig von der echten Pfadlänge -->
+                <path class="ekg-base"  pathLength="100" d="M0 40 L60 40 L70 34 L80 40 L95 40 L100 46 L108 12 L116 58 L122 40 L140 40 L150 33 L160 40 L200 40 L260 40 L270 34 L280 40 L295 40 L300 46 L308 12 L316 58 L322 40 L340 40 L350 33 L360 40 L400 40 L460 40 L470 34 L480 40 L495 40 L500 46 L508 12 L516 58 L522 40 L540 40 L550 33 L560 40 L600 40"/>
+                <path class="ekg-trace" pathLength="100" d="M0 40 L60 40 L70 34 L80 40 L95 40 L100 46 L108 12 L116 58 L122 40 L140 40 L150 33 L160 40 L200 40 L260 40 L270 34 L280 40 L295 40 L300 46 L308 12 L316 58 L322 40 L340 40 L350 33 L360 40 L400 40 L460 40 L470 34 L480 40 L495 40 L500 46 L508 12 L516 58 L522 40 L540 40 L550 33 L560 40 L600 40"/>
+            </svg>
         </div>
+
+        <!-- Trust-Badges mit Inline-SVG-Icons (keine Emojis, keine CDN-Abhängigkeit).
+             Icons erben die Farbe per currentColor -> einheitliches Bordeaux. -->
+        <ul class="hero-badges">
+            <li>
+                <!-- Icon: Server (on-premise) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4"  width="18" height="7" rx="1.6"/>
+                    <rect x="3" y="13" width="18" height="7" rx="1.6"/>
+                    <circle cx="7" cy="7.5"  r="0.9" fill="currentColor" stroke="none"/>
+                    <circle cx="7" cy="16.5" r="0.9" fill="currentColor" stroke="none"/>
+                </svg>
+                <span>Eigener Server</span>
+            </li>
+            <li>
+                <!-- Icon: Schild mit Haken (DSGVO) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+                <span>DSGVO-konform</span>
+            </li>
+            <li>
+                <!-- Icon: Funke (KI) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/>
+                </svg>
+                <span>KI-gestützt</span>
+            </li>
+        </ul>
     </div>
 </section>
 
