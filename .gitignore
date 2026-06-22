@@ -1,0 +1,81 @@
+# =====================================================================
+#  .gitignore – Pflegedex-Website (PHP / Strato)
+#  Alles hier wird NICHT ins Git-Repo aufgenommen / gepusht.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+#  Geheimnisse / Umgebungs-spezifische Konfiguration
+# ---------------------------------------------------------------------
+# config.php enthält später die echte n8n-Webhook-URL und darf nicht
+# öffentlich werden. Im Repo liegt stattdessen config.example.php.
+config.php
+.env
+.env.*
+*.local.php
+secrets.php
+
+# ---------------------------------------------------------------------
+#  PHP / Composer (falls später genutzt)
+# ---------------------------------------------------------------------
+/vendor/
+composer.phar
+
+# ---------------------------------------------------------------------
+#  Logs & Caches
+# ---------------------------------------------------------------------
+*.log
+/logs/
+/cache/
+/tmp/
+*.cache
+
+# ---------------------------------------------------------------------
+#  Uploads / generierte Inhalte (Laufzeit, nicht versionieren)
+# ---------------------------------------------------------------------
+/uploads/
+
+# ---------------------------------------------------------------------
+#  Build-Artefakte Frontend (falls später Assets gebaut werden)
+# ---------------------------------------------------------------------
+/node_modules/
+npm-debug.log*
+yarn-error.log*
+/dist/
+/build/
+
+# ---------------------------------------------------------------------
+#  Editor- / IDE-Dateien
+# ---------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------------------------------------------------------
+#  Betriebssystem-Müll
+# ---------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------
+#  Deployment / FTP (Strato)
+# ---------------------------------------------------------------------
+.ftpconfig
+.sftp-config.json
+deploy.php
+*.zip
+*.tar.gz
+
+# ---------------------------------------------------------------------
+#  Claude / lokale Tooling-Reste
+# ---------------------------------------------------------------------
+.claude/
