@@ -15,7 +15,8 @@ $root = $root ?? '';
 
         <!-- Spalte 1: Marke + Kurzbeschreibung -->
         <div class="footer-brand">
-            <span class="brand-mark">Pflege<span class="brand-accent">dex</span></span>
+            <img src="<?= $root ?>assets/images/logo/pflegedex_logo.svg"
+                 alt="Pflegedex" class="footer-logo" width="520" height="120">
             <p class="footer-tagline">
                 KI-gestützte Pflegedokumentation – sicher, lokal, intelligent.
                 Ihre Pflegedaten bleiben in Ihrem Haus.

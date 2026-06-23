@@ -321,6 +321,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .brand { display: inline-flex; align-items: center; }
+.brand-logo { height: 42px; width: auto; display: block; }
+@media (max-width: 480px) { .brand-logo { height: 34px; } }
+
+/* Text-Wortmarke (Fallback/Legacy – aktuell durch Logo-Bild ersetzt) */
 .brand-mark {
     font-family: var(--font-head);
     font-weight: 800;
@@ -930,6 +934,7 @@ textarea.form-control { min-height: 140px; resize: vertical; }
     padding-block: var(--space-lg);
 }
 .footer-brand .brand-mark { font-size: 1.6rem; }
+.footer-logo { height: 48px; width: auto; display: block; margin-bottom: 0.85rem; }
 .footer-tagline { margin-top: 0.8rem; max-width: 320px; font-size: 0.95rem; color: var(--pflege-muted); }
 
 .footer-heading {

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+
+  <!-- Herz gefüllt Bordeaux, zentriert -->
+  <path d="M60,108
+           C60,108 12,70 12,38
+           C12,16 28,4 44,4
+           C53,4 60,12 60,12
+           C60,12 67,4 76,4
+           C92,4 108,16 108,38
+           C108,70 60,108 60,108 Z"
+    fill="#9B1C3B"/>
+
+  <!-- EKG weiß im Herz -->
+  <polyline
+    points="16,50 28,50 34,50 39,30 44,72 49,18 54,84 59,50 80,50 104,50"
+    fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

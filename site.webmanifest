@@ -1,0 +1,23 @@
+{
+  "name": "Pflegedex",
+  "short_name": "Pflegedex",
+  "description": "KI-gestützte Pflegedokumentation – sicher, lokal, intelligent.",
+  "lang": "de",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9B1C3B",
+  "icons": [
+    {
+      "src": "/assets/images/logo/pflegedex_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/logo/pflegedex_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

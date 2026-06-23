@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+
+  <!-- Herz gefüllt Bordeaux -->
+  <path d="M60,105
+           C60,105 18,72 18,45
+           C18,24 34,10 50,10
+           C58,10 64,16 64,16
+           C64,16 70,10 78,10
+           C94,10 110,24 110,45
+           C110,72 60,105 60,105 Z"
+    fill="#9B1C3B"/>
+
+  <!-- EKG weiß im Herz -->
+  <polyline
+    points="22,52 33,52 38,52 43,34 48,72 53,22 58,82 63,52 84,52 106,52"
+    fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wordmark -->
+  <text x="130" y="72"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="52"
+    font-weight="500"
+    fill="#9B1C3B"
+    letter-spacing="-1">Pflegedex</text>
+
+  <!-- Subline -->
+  <text x="132" y="96"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13"
+    font-weight="400"
+    fill="#9B1C3B"
+    opacity="0.65"
+    letter-spacing="2.2">PFLEGEDOKUMENTATION</text>
+
+</svg>

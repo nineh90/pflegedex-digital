@@ -59,9 +59,21 @@ function navActive(string $slug, string $current): string {
     <meta property="og:description" content="<?= htmlspecialchars($pageDesc) ?>">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Pflegedex">
+    <meta property="og:image" content="https://pflegedex-digital.de/assets/images/logo/pflegedex_icon_512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pflegedex-digital.de/assets/images/logo/pflegedex_icon_512.png">
 
     <!-- Theme-Farbe für mobile Browser (Bordeaux) -->
     <meta name="theme-color" content="#9B1C3B">
+
+    <!-- Favicon / App-Icons (Logo von Kevin) -->
+    <link rel="icon" type="image/svg+xml" href="<?= $root ?>assets/images/logo/pflegedex_icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $root ?>assets/images/logo/pflegedex_favicon_32.png">
+    <link rel="apple-touch-icon" href="<?= $root ?>assets/images/logo/pflegedex_icon_192.png">
+    <link rel="manifest" href="<?= $root ?>site.webmanifest">
 
     <!-- Schriften: Inter (Fließtext) + Poppins (Headlines) – lokal gehostet,
          DSGVO-konform (keine Verbindung zu Google-Servern). -->
@@ -80,9 +92,11 @@ function navActive(string $slug, string $current): string {
 <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
 
-        <!-- Wortmarke (Text-Logo – später durch Bild austauschbar) -->
-        <a href="<?= $root ?>index.php" class="brand" aria-label="Pflegedex Startseite">
-            <span class="brand-mark">Pflege<span class="brand-accent">dex</span></span>
+        <!-- Logo (Wortmarke) -->
+        <a href="<?= $root ?>index.php" class="brand" aria-label="Pflegedex – zur Startseite">
+            <img src="<?= $root ?>assets/images/logo/pflegedex_logo.svg"
+                 alt="Pflegedex – Pflegedokumentation"
+                 class="brand-logo" width="520" height="120">
         </a>
 
         <!-- Mobile-Toggle (per JS gesteuert) -->
