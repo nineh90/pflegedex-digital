@@ -19,7 +19,7 @@ require __DIR__ . '/../includes/header.php';
     <div class="container">
         <div class="legal">
             <span class="eyebrow">Rechtliches</span>
-            <h2 style="margin-top:0;">Impressum</h2>
+            <h1 class="page-title" style="margin-top:0;">Impressum</h1>
 
             <h3>Angaben gemäß § 5 DDG</h3>
             <p>

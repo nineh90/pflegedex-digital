@@ -115,7 +115,7 @@ require __DIR__ . '/../includes/header.php';
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">Kontakt</span>
-            <h2>Demo anfragen</h2>
+            <h1 class="page-title">Demo anfragen</h1>
             <p class="section-sub">
                 Erzählen Sie uns kurz von Ihrer Einrichtung – wir melden uns
                 innerhalb von 24 Stunden.

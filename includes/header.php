@@ -30,6 +30,11 @@ $currentPage = $currentPage ?? 'home';
 $pageTitle   = $pageTitle   ?? 'Pflegedex – KI-Pflegedokumentation on-premise | Nils-Digital';
 $pageDesc    = $pageDesc    ?? 'Pflegedex: Die sichere, KI-gestützte Pflegedokumentations-Software für Pflegeeinrichtungen. 100% lokal, DSGVO-konform, auf Ihrem Server. Ein Produkt von Nils-Digital.';
 
+// Kanonische URL der aktuellen Seite (Duplicate-Content-Schutz, z.B. /index.php -> /).
+$canonicalPath = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+$canonicalPath = preg_replace('#/index\.php$#', '/', $canonicalPath);
+$canonical     = $canonical ?? ('https://pflegedex-digital.de' . $canonicalPath);
+
 /**
  * Kleine Hilfsfunktion: setzt die CSS-Klasse "is-active" auf den
  * gerade aktiven Navigationspunkt.
@@ -54,12 +59,16 @@ function navActive(string $slug, string $current): string {
     <meta name="keywords" content="Pflegedokumentation Software, on-premise Pflege, DSGVO Pflegeeinrichtung, KI Pflegedokumentation, Pflegesoftware lokal">
     <meta name="author" content="Nils-Digital">
 
+    <!-- Kanonische URL (verhindert Duplicate Content) -->
+    <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
+
     <!-- Open Graph (Social Sharing) -->
     <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
     <meta property="og:description" content="<?= htmlspecialchars($pageDesc) ?>">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Pflegedex">
+    <meta property="og:url" content="<?= htmlspecialchars($canonical) ?>">
     <meta property="og:image" content="https://pflegedex-digital.de/assets/images/logo/pflegedex_icon_512.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
@@ -83,6 +92,41 @@ function navActive(string $slug, string $current): string {
 
     <!-- Haupt-Stylesheet (lokal, kein CDN) -->
     <link rel="stylesheet" href="<?= $root ?>assets/css/style.css">
+
+    <!-- Strukturierte Daten (JSON-LD): hilft Google, Pflegedex als Software-
+         Produkt von Nils-Digital eindeutig zu verstehen. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://pflegedex-digital.de/#organization",
+          "name": "Nils-Digital",
+          "url": "https://nils-digital.de",
+          "description": "Nils-Digital (Nils Nehring & Kevin Herrmann) entwickelt digitale Lösungen aus dem Münsterland – darunter Pflegedex."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://pflegedex-digital.de/#website",
+          "url": "https://pflegedex-digital.de/",
+          "name": "Pflegedex",
+          "inLanguage": "de",
+          "publisher": { "@id": "https://pflegedex-digital.de/#organization" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Pflegedex",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Docker / Linux (on-premise)",
+          "url": "https://pflegedex-digital.de/",
+          "image": "https://pflegedex-digital.de/assets/images/logo/pflegedex_icon_512.png",
+          "description": "KI-gestützte, lokale Pflegedokumentations-Software für Pflegeeinrichtungen. 100% on-premise, DSGVO-konform – Pflegedaten bleiben auf dem eigenen Server.",
+          "publisher": { "@id": "https://pflegedex-digital.de/#organization" }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 

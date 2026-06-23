@@ -21,7 +21,7 @@ require __DIR__ . '/../includes/header.php';
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">Funktionen</span>
-            <h2>Pflegedokumentation, durchdacht bis ins Detail</h2>
+            <h1 class="page-title">Pflegedokumentation, durchdacht bis ins Detail</h1>
             <p class="section-sub">
                 Pflegedex verbindet einen modernen Pflegealltag mit
                 kompromisslosem Datenschutz – hier sehen Sie, wie.

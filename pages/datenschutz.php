@@ -20,7 +20,7 @@ require __DIR__ . '/../includes/header.php';
     <div class="container">
         <div class="legal">
             <span class="eyebrow">Rechtliches</span>
-            <h2 style="margin-top:0;">Datenschutzerklärung</h2>
+            <h1 class="page-title" style="margin-top:0;">Datenschutzerklärung</h1>
 
             <p style="color:var(--pflege-muted);">
                 Diese Erklärung betrifft die Website pflegedex-digital.de – nicht die

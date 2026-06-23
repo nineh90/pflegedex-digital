@@ -124,6 +124,10 @@ h1 { font-size: clamp(2.1rem, 5.5vw, 3.5rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.55rem, 3.6vw, 2.2rem); letter-spacing: -0.01em; }
 h3 { font-size: 1.25rem; }
 
+/* Seiten-Titel auf Unterseiten: semantisch <h1>, optisch wie ein <h2>
+   (eine sichtbare Hauptüberschrift pro Seite, ohne Hero-Größe). */
+.page-title { font-size: clamp(1.55rem, 3.6vw, 2.2rem); letter-spacing: -0.01em; }
+
 p { margin: 0 0 1rem; }
 
 a {
