@@ -838,6 +838,56 @@ textarea.form-control { min-height: 140px; resize: vertical; }
     text-align: center;
 }
 
+/* --- Kontakt-Layout: Formular + Info-Panel --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: var(--space-md);
+    align-items: start;
+    max-width: 960px;
+    margin: 0 auto;
+}
+/* Formular-Karte füllt im Grid ihre Spalte (Zentrierung aufheben) */
+.contact-grid .form-card { max-width: none; margin: 0; }
+
+.contact-info {
+    background: var(--pflege-bg-soft);
+    border: 1px solid var(--pflege-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3vw, 2rem);
+}
+.contact-info > h3 { color: var(--pflege-heading); margin-bottom: 0.4rem; }
+.contact-info > p  { color: var(--pflege-muted); margin-bottom: 1.6rem; }
+
+.contact-points { display: flex; flex-direction: column; gap: 1.15rem; }
+.contact-points li { display: flex; gap: 0.85rem; align-items: flex-start; }
+.contact-points .ci-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--pflege-bordeaux-tint);
+    color: var(--pflege-bordeaux);
+    flex-shrink: 0;
+}
+.contact-points .ci-icon svg { width: 20px; height: 20px; }
+.contact-points strong {
+    display: block;
+    color: var(--pflege-heading);
+    font-family: var(--font-head);
+    font-size: 1rem;
+}
+.contact-points span { color: var(--pflege-muted); font-size: 0.95rem; }
+.contact-points a { color: var(--pflege-bordeaux); font-weight: 600; word-break: break-word; }
+.contact-points a:hover { text-decoration: underline; }
+
+/* Mobil: untereinander, Info-Panel unter das Formular */
+@media (max-width: 800px) {
+    .contact-grid { grid-template-columns: 1fr; max-width: 640px; }
+}
+
 /* Erfolgs- / Fehlermeldungen */
 .alert {
     border-radius: var(--radius-md);

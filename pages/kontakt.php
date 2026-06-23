@@ -122,6 +122,7 @@ require __DIR__ . '/../includes/header.php';
             </p>
         </div>
 
+        <div class="contact-grid">
         <div class="form-card">
             <?php if ($sent): ?>
                 <!-- Erfolgsmeldung -->
@@ -183,6 +184,46 @@ require __DIR__ . '/../includes/header.php';
                     </p>
                 </form>
             <?php endif; ?>
+        </div>
+
+        <!-- Info-Panel: persönliche Note + Trust neben dem Formular -->
+        <aside class="contact-info">
+            <h3>Persönlich für Sie da</h3>
+            <p>
+                Kein Callcenter, kein Vertriebsdruck – Sie sprechen direkt mit
+                den Machern von Pflegedex.
+            </p>
+            <ul class="contact-points">
+                <li>
+                    <span class="ci-icon" aria-hidden="true"><?= pflegedex_icon('clock') ?></span>
+                    <div>
+                        <strong>Antwort in 24 Stunden</strong>
+                        <span>Wir melden uns schnell und persönlich zurück.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="ci-icon" aria-hidden="true"><?= pflegedex_icon('mail') ?></span>
+                    <div>
+                        <strong>Direkt schreiben</strong>
+                        <a href="mailto:<?= htmlspecialchars(PFLEGEDEX_CONTACT_EMAIL) ?>"><?= htmlspecialchars(PFLEGEDEX_CONTACT_EMAIL) ?></a>
+                    </div>
+                </li>
+                <li>
+                    <span class="ci-icon" aria-hidden="true"><?= pflegedex_icon('pin') ?></span>
+                    <div>
+                        <strong>Aus dem Münsterland</strong>
+                        <span>Regional verwurzelt und nah an Ihrer Einrichtung.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="ci-icon" aria-hidden="true"><?= pflegedex_icon('check') ?></span>
+                    <div>
+                        <strong>Kostenlos &amp; unverbindlich</strong>
+                        <span>Testen Sie Pflegedex in Ruhe – ohne Risiko.</span>
+                    </div>
+                </li>
+            </ul>
+        </aside>
         </div>
     </div>
 </section>
