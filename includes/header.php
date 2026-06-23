@@ -63,10 +63,11 @@ function navActive(string $slug, string $current): string {
     <!-- Theme-Farbe für mobile Browser (Bordeaux) -->
     <meta name="theme-color" content="#9B1C3B">
 
-    <!-- Google Fonts: Inter (Fließtext) + Poppins (Headlines) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Schriften: Inter (Fließtext) + Poppins (Headlines) – lokal gehostet,
+         DSGVO-konform (keine Verbindung zu Google-Servern). -->
+    <link rel="preload" href="<?= $root ?>assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<?= $root ?>assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="<?= $root ?>assets/fonts/fonts.css">
 
     <!-- Haupt-Stylesheet (lokal, kein CDN) -->
     <link rel="stylesheet" href="<?= $root ?>assets/css/style.css">

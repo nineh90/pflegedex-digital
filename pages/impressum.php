@@ -2,9 +2,7 @@
 /**
  * pages/impressum.php – Impressum (§ 5 DDG / § 18 MStV)
  * -----------------------------------------------------
- * ACHTUNG: Diese Seite enthält bewusst klar markierte PLATZHALTER.
- * Vor dem Live-Gang müssen alle <span class="placeholder">…</span>
- * durch die echten rechtlichen Angaben ersetzt werden.
+ * Pflichtangaben gemäß DDG/MStV für pflegedex-digital.de.
  */
 
 require_once __DIR__ . '/../config.php';
@@ -23,42 +21,36 @@ require __DIR__ . '/../includes/header.php';
             <span class="eyebrow">Rechtliches</span>
             <h2 style="margin-top:0;">Impressum</h2>
 
-            <p style="color:var(--pflege-muted);">
-                <strong>Hinweis (Demo):</strong> Die mit
-                <span class="placeholder">[PLATZHALTER]</span> markierten Felder
-                sind vor dem Live-Gang durch die echten Angaben zu ersetzen.
-            </p>
-
             <h3>Angaben gemäß § 5 DDG</h3>
             <p>
-                <span class="placeholder">[ANBIETER / FIRMA]</span><br>
-                <span class="placeholder">[STRASSE UND HAUSNUMMER]</span><br>
-                <span class="placeholder">[PLZ ORT]</span><br>
-                <span class="placeholder">[LAND]</span>
+                Nils-Digital<br>
+                Permer Stollen 6<br>
+                49479 Ibbenbüren<br>
+                Deutschland
             </p>
 
             <h3>Vertreten durch</h3>
             <p>
-                Nils Nehring &amp; Kevin Herrmann
-                <span class="placeholder">[RECHTSFORM/VERTRETUNG PRÄZISIEREN]</span>
+                Nils Nehring &amp; Kevin Herrmann<br>
+                Gründer und Entwickler
             </p>
 
             <h3>Kontakt</h3>
             <p>
-                Telefon: <span class="placeholder">[TELEFONNUMMER]</span><br>
+                Telefon: <a href="tel:+4915229581766">0152 29581766</a><br>
                 E-Mail: <a href="mailto:<?= PFLEGEDEX_CONTACT_EMAIL ?>"><?= PFLEGEDEX_CONTACT_EMAIL ?></a>
             </p>
 
-            <h3>Umsatzsteuer-ID</h3>
+            <h3>Umsatzsteuer</h3>
             <p>
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG:<br>
-                <span class="placeholder">[USt-IdNr. ODER HINWEIS KLEINUNTERNEHMER]</span>
+                Als Kleinunternehmer im Sinne von § 19 UStG erheben wir keine
+                Umsatzsteuer und weisen diese daher nicht aus.
             </p>
 
             <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
             <p>
-                <span class="placeholder">[NAME]</span><br>
-                <span class="placeholder">[ANSCHRIFT]</span>
+                Nils Nehring<br>
+                Permer Stollen 6, 49479 Ibbenbüren
             </p>
 
             <h3>Verbraucherstreitbeilegung</h3>

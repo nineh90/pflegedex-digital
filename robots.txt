@@ -1,0 +1,16 @@
+# robots.txt – pflegedex-digital.de
+# ----------------------------------
+# Erlaubt allen Suchmaschinen das Crawlen der gesamten Seite.
+#
+# HINWEIS: Solange die Seite als Demo läuft, steht in jeder Seite
+# zusätzlich ein <meta name="robots" content="noindex"> (gesteuert über
+# PFLEGEDEX_NOINDEX in config.php). Dieses robots.txt ist bereits
+# go-live-fertig – beim Live-Gang muss nur noindex deaktiviert werden.
+
+User-agent: *
+Allow: /
+
+# Technische Verzeichnisse müssen nicht gecrawlt werden:
+Disallow: /includes/
+
+Sitemap: https://pflegedex-digital.de/sitemap.xml
